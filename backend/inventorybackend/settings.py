@@ -19,6 +19,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
+import cloudinary
+import os
+
+
+cloudinary.config(
+    clound_name= os.environ.get('CLOUD_NAME'), 
+    api_keys= os.environ.get('CLOUD_API_KEYS'),
+    api_secret= os.environ.get('CLOUD_API_SECRET'),
+)
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-l1j5q*9_m)p95n^jm1+97cdw*_3l1mnuhsyhf)kc616p@(3qnk'
 
@@ -37,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
